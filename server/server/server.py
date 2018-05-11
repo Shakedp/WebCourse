@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import flask
@@ -13,16 +13,10 @@ app = flask.Flask(__name__)
 @app.route('/calculate', methods=['POST'])
 def calculate():
     j = flask.request.get_json()
-    if "calculatorState" in j:
-        state = j["calculatorState"]
-    else:
-        state = None
+    print(j)
+    state = j["calculatorState"]
+    calc_input = j["input"]
 
-    if "input" in j:
-        calc_input = j["input"]
-    else:
-        # TODO: handle error
-        pass
     return calc.calculate_next_state(json.dumps(state), calc_input)
 
  
