@@ -7,7 +7,6 @@ import pytest
 import requests
 
 SERVER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'server', 'server.py')
-print(SERVER_PATH)
 PORT = 9000
 
 
