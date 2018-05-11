@@ -69,9 +69,9 @@ def _calculate_next_state(prev, current, old_action, input_str):
         pass
     return prev, current, old_action
 
+
 def calculate_next_state(json_state, input_str):
     if json_state:
-        print 123
         state = json.loads(json_state)
         prev, current, action = _calculate_next_state(state["prev"], state["current"], state["action"], input_str)
     else:
