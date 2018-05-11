@@ -14,7 +14,11 @@ app = flask.Flask(__name__)
 def calculate():
     j = flask.request.get_json()
     print(j)
-    state = j["calculatorState"]
+    if "calculatorState" in j:
+        state = j["calculatorState"]
+    else:
+        state = None
+        
     calc_input = j["input"]
 
     return calc.calculate_next_state(json.dumps(state), calc_input)
