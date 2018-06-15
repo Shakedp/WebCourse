@@ -96,7 +96,10 @@ def calculate_next_state(json_state, input_str):
         current = int(input_str)
         action = None
     if not current:
-        display = prev
+        if prev:
+            display = prev
+        else:
+            display = 0
     else:
         display = current
     return json.dumps({"display": str(display), "prev": prev, "current": current, "action": action})
