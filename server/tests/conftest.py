@@ -3,6 +3,7 @@ import pytest
 
 @pytest.fixture(params=[
     ('1', '1'),
+    ('0', '0'),
     ('123', '123'),
     ('12+3', '3'),
     ('12+3=', '15'),
@@ -19,6 +20,7 @@ import pytest
     ('1+2===', '3'),
 ], ids=[
     'single digit',
+    'zero only',
     'multiple digits',
     'no = at end',
     '= at end',
