@@ -10,7 +10,13 @@ import pytest
     ('12/3=', '4'),
     ('13/3=', '4'),
     ('12-3=', '9'),
-    ('12+3*4=', '60')
+    ('12+3*4=', '60'),
+    ('/1+2=', '3'),
+    ('*1+2=', '3'),
+    ('+1+2=', '3'),
+    ('-1+2=', '3'),
+    ('=1+2=', '3'),
+    ('1+2===', '3'),
 ], ids=[
     'single digit',
     'multiple digits',
@@ -20,7 +26,13 @@ import pytest
     'division - without remainder',
     'division - with remainder',
     'subtraction',
-    'no precedence'
+    'no precedence',
+    'action at start - division',
+    'action at start - multiplication',
+    'action at start - addition',
+    'action at start - substraction',
+    'action at start - equal',
+    'many equal actions',
                    ])
 def phrase_and_expected(request):
     return request.param[0], request.param[1]

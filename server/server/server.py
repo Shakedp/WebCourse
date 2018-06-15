@@ -13,7 +13,6 @@ app = flask.Flask(__name__)
 @app.route('/calculate', methods=['POST'])
 def calculate():
     j = flask.request.get_json()
-    print(j)
     if "calculatorState" in j:
         state = j["calculatorState"]
     else:

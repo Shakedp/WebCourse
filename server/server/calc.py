@@ -22,6 +22,8 @@ def perform_div(prev, current):
 
 
 def handle_eq(prev, current, action):
+    if not action or not current or not action:
+        return prev, current, action
     return ACTIONS[action](prev, current), None, None
 
 
@@ -85,9 +87,11 @@ def calculate_next_state(json_state, input_str):
         state = json.loads(json_state)
         prev, current, action = _calculate_next_state(state["prev"], state["current"], state["action"], input_str)
     else:
-        if input_str not in NUMBERS:
-            # error
-            pass
+        # first time
+        if not input_str:
+            return json.dumps(None)
+        if not input_str.isdigit():
+            return json.dumps(None)
         prev = None
         current = int(input_str)
         action = None
