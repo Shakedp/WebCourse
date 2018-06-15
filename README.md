@@ -19,6 +19,11 @@ docker build -t webcoursecalculator .
 docker run -v $(pwd)/server:/server -p 3000:80 -w /server/server -i webcoursecalculator python3 server.py --host 0.0.0.0 --port 80
 ```
 
+## Run with docker compose
+```sh
+docker-compose up
+```
+
 ## Tests
 There are two types of tests to this project - unit & integration. Both written using pytest.
 ```sh
