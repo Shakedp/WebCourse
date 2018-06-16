@@ -8,15 +8,20 @@ git clone git@github.com:Shakedp/WebCourse.git
 pip install -r requirements.txt
 ```
 
-## Run
+## Run from dir
 ```sh
-python  ./server/server/server.py
+python  ./server/server.py
+```
+
+## Install
+```sh
+python setup.py install
 ```
 
 ## Run with docker
 ```sh
 docker build -t webcoursecalculator .
-docker run -v $(pwd)/server:/server -p 3000:80 -w /server/server -i webcoursecalculator python3 server.py --host 0.0.0.0 --port 80
+docker run -v $(pwd)/server:/server -p 3000:80 -w /server -i webcoursecalculator python3 server.py --host 0.0.0.0 --port 80
 ```
 
 ## Run with docker compose
@@ -26,9 +31,13 @@ docker-compose up
 
 ## Tests
 There are three types of tests to this project - unit, integration & e2e, all written using pytest.
-Make sure that you don't have the server running already - the tests runs it by themselves.
+In order to run the tests you need to 
+1. Make sure that the server is running with docker compose and not on its own.
+1. Intall the server package (See the `Install` section).
+1. Install all the requirements.
+
 ```sh
-cd server/tests
-pip install -r requirements.txt
+pip install -r requirements.test.txt
+cd tests
 py.test
 ```

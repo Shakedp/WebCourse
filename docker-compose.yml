@@ -11,7 +11,7 @@ services:
     volumes:
      - ./server:/server
     command:
-        python3 -u /server/server/server.py --host 0.0.0.0 --port 80
+        python3 -u /server/server.py --host 0.0.0.0 --port 80
   frontend-service:
     image: "webdevtoolsandtech/currency-frontend"
   currency-backend:
