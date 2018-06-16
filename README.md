@@ -25,7 +25,8 @@ docker-compose up
 ```
 
 ## Tests
-There are two types of tests to this project - unit & integration. Both written using pytest.
+There are three types of tests to this project - unit, integration & e2e, all written using pytest.
+Make sure that you don't have the server running already - the tests runs it by themselves.
 ```sh
 cd server/tests
 pip install -r requirements.txt
