@@ -10,13 +10,13 @@ SERVER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'server',
 PORT = 9000
 
 
-@pytest.fixture(scope='session', autouse=True)
+@pytest.fixture(scope='module', autouse=True)
 def run_server():
     server = None
     try:
         command_line = 'python3 {server_path} --port {port}'.format(server_path=SERVER_PATH, port=PORT)
         server = subprocess.Popen(command_line.split())
-        time.sleep(1) # Let the server wake up
+        time.sleep(1)  # Let the server wake up
         yield
     finally:
         server.terminate()
