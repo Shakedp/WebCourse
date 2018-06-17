@@ -50,7 +50,7 @@ def handle_div(prev, current, old_action):
 def handle_mul(prev, current, old_action):
     return handle_op(prev, current, old_action, "*")
 
-
+# all the available actions
 ACTIONS = {
     "+": perform_add,
     "/": perform_div,
@@ -58,6 +58,7 @@ ACTIONS = {
     "-": perform_sub,
 }
 
+# all the available inputs
 INPUTS = {
     "+": handle_add,
     "/": handle_div,
@@ -65,10 +66,16 @@ INPUTS = {
     "-": handle_sub,
     "=": handle_eq
 }
+
+# all the digits
 NUMBERS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 
 def _calculate_next_state(prev, current, old_action, input_str):
+    '''
+    The function receives the current state as parameters, and an input string,
+    and return the new state, also as parameters.
+    '''
     if input_str in INPUTS.keys():
         prev, current, old_action = INPUTS[input_str](prev, current, old_action)
     elif input_str in NUMBERS:
@@ -83,6 +90,10 @@ def _calculate_next_state(prev, current, old_action, input_str):
 
 
 def calculate_next_state(json_state, input_str):
+    '''
+    The main function of the module. Receives a json state as string, and an input string,
+    and return the new json state.
+    '''
     if json_state and json.loads(json_state):
         state = json.loads(json_state)
         prev, current, action = _calculate_next_state(state["prev"], state["current"], state["action"], input_str)
@@ -90,7 +101,7 @@ def calculate_next_state(json_state, input_str):
         # first time
         if not input_str:
             return json.dumps(None)
-        if not input_str.isdigit():
+        if input_str not in NUMBERS:
             return json.dumps(None)
         prev = None
         current = int(input_str)
