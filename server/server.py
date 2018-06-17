@@ -12,6 +12,9 @@ app = flask.Flask(__name__)
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
+    '''
+    The main endpoint of the REST server
+    '''
     j = flask.request.get_json()
     if "calculatorState" in j:
         state = j["calculatorState"]

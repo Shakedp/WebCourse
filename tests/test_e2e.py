@@ -6,7 +6,7 @@ import pytest
 from selenium import webdriver
 
 
-DOCKER_COMPOSE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'docker-compose.yml')
+DOCKER_COMPOSE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'docker-compose.yml')
 
 
 @pytest.fixture(scope='module', autouse=True)
