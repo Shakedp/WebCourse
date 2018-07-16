@@ -6,29 +6,13 @@ import pytest
 from selenium import webdriver
 
 
-DOCKER_COMPOSE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'docker-compose.yml')
-
-
-@pytest.fixture(scope='module', autouse=True)
-def server():
-    server = None
-    try:
-        command_line = 'docker-compose -f {path} up'.format(path=DOCKER_COMPOSE_PATH)
-        print(command_line)
-        server = subprocess.Popen(command_line.split())
-        time.sleep(5)  # Let the server wake up
-        yield server
-    finally:
-        server.terminate()
-
-
 @pytest.fixture(scope='module')
 def browser():
     return webdriver.Chrome()
 
 
 @pytest.fixture(scope='module', autouse=True)
-def signup(server, browser):
+def signup(browser):
     browser.get('http:localhost:3000/signup')
     for input_name in ['email', 'name', 'password']:
         input_box = browser.find_element_by_name(input_name)

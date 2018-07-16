@@ -19,7 +19,7 @@ pip3 install -r requirements.txt
 ## Run from dir
 ```sh
 python3  ./server/server.py
-``
+```
 
 ## Install
 ```sh
@@ -41,8 +41,9 @@ docker-compose up
 There are three types of tests to this project - unit, integration & e2e, all written using pytest.
 In order to run the tests you need to 
 1. Intall the server package (See the `Install` section).
-1. Install all the requirements.
-1. Run the tests.
+2. Install all the requirements.
+3. Run the server (docker-compose up)
+4. Run the tests.
 
 Python requirements:
 ```sh
