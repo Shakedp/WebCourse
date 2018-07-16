@@ -4,6 +4,13 @@ Docker compose and code for a web calculator.
 Uses python3 only
 
 ## Prerequisites
+Project and tests:
+- python3
+- docker
+- docker-compose
+- chrome
+- chromedriver for selenium
+
 ```sh
 git clone git@github.com:Shakedp/WebCourse.git
 pip3 install -r requirements.txt
@@ -12,7 +19,7 @@ pip3 install -r requirements.txt
 ## Run from dir
 ```sh
 python3  ./server/server.py
-```
+``
 
 ## Install
 ```sh
@@ -33,13 +40,16 @@ docker-compose up
 ## Tests
 There are three types of tests to this project - unit, integration & e2e, all written using pytest.
 In order to run the tests you need to 
-1. Make sure that the server is running with docker compose and not on its own.
 1. Intall the server package (See the `Install` section).
 1. Install all the requirements.
+1. Run the tests.
 
+Python requirements:
 ```sh
 pip3 install -r requirements.test.txt
-./selenium_chromedriver.sh
+```
+Run the tests:
+```sh
 cd tests
 py.test
 ```
