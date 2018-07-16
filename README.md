@@ -1,21 +1,22 @@
 # Web Calculator
 Exercise for Web Development Course.
 Docker compose and code for a web calculator.
+Uses python3 only
 
 ## Prerequisites
 ```sh
 git clone git@github.com:Shakedp/WebCourse.git
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## Run from dir
 ```sh
-python  ./server/server.py
+python3  ./server/server.py
 ```
 
 ## Install
 ```sh
-python setup.py install
+python3 setup.py install
 ```
 
 ## Run with docker
@@ -37,7 +38,8 @@ In order to run the tests you need to
 1. Install all the requirements.
 
 ```sh
-pip install -r requirements.test.txt
+pip3 install -r requirements.test.txt
+./selenium_chromedriver.sh
 cd tests
 py.test
 ```

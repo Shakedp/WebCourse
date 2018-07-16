@@ -16,7 +16,7 @@ def run_server():
     try:
         command_line = 'python3 {server_path} --port {port}'.format(server_path=SERVER_PATH, port=PORT)
         server = subprocess.Popen(command_line.split())
-        time.sleep(1)  # Let the server wake up
+        time.sleep(3)  # Let the server wake up
         yield
     finally:
         server.terminate()
